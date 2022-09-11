@@ -6,7 +6,8 @@
         "env": "PORT=8085",
         "volume": "/var/log/lcarnevale:/opt/app/log",
         "port": "8085:8085",
-        "image": "lcarnevale/fileserver"
+        "image": "lcarnevale/fileserver",
+        "script": false
     },
     {    
         "platea_service_name" : "smtpclient-microservice",
@@ -15,6 +16,7 @@
         "env": null,
         "volume": null,
         "port": "5000:5000",
-        "image": "lcarnevale/smtpclient-microservice"
+        "image": "lcarnevale/smtpclient-microservice",
+        "script": true
     }
 ]
