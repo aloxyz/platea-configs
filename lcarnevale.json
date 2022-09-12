@@ -10,7 +10,7 @@
         "script": false
     },
     {    
-        "platea_service_name" : "smtpclient-microservice",
+        "platea_service_name": "smtpclient-microservice",
         "container_name": "smtpclient-microservice",
         "endpoint": "https://github.com/lcarnevale/smtpclient-microservice/archive/refs/heads/master.zip",
         "env": null,
