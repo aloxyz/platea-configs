@@ -2,7 +2,7 @@
    {    
         "platea_service_name": "docker-file-server",
         "container_name": "fileserver",
-        "endpoint": "https://github.com/lcarnevale/docker-file-server/archive/refs/tags/v1.0.0.tar.gz",
+        "endpoint": "https://github.com/lcarnevale/docker-file-server/archive/refs/tags/v1.0.0.zip",
         "env": "PORT=8085",
         "volume": "/var/log/lcarnevale:/opt/app/log",
         "port": "8085:8085",
