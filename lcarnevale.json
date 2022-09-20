@@ -1,22 +1,115 @@
-[
-   {    
-        "platea_service_name": "docker-file-server",
-        "container_name": "fileserver",
-        "endpoint": "https://github.com/lcarnevale/docker-file-server/archive/refs/tags/v1.0.0.zip",
-        "env": "PORT=8085",
-        "volume": "/var/log/lcarnevale:/opt/app/log",
-        "port": "8085:8085",
-        "image": "lcarnevale/fileserver",
-        "script": false
-    },
-    {    
-        "platea_service_name": "smtpclient-microservice",
-        "container_name": "smtpclient-microservice",
-        "endpoint": "https://github.com/lcarnevale/smtpclient-microservice/archive/refs/heads/master.zip",
-        "env": null,
-        "volume": null,
-        "port": "5000:5000",
-        "image": "lcarnevale/smtpclient-microservice",
-        "script": true
+{
+    "instanceName": "lcarnevale",
+    "containers": {
+        "docker-file-server": {
+            "endpoint": "https://github.com/lcarnevale/docker-file-server.git#main",
+
+            "config": {
+                "Hostname": "",
+                "Domainname": "",
+                "User": "",
+                "ExposedPorts": null,
+                "Env": [
+                    "PORT=8085"
+                ],
+                "Cmd": ["sh", "-c", "python3 main.py -v -p $PORT"],
+                "Healthcheck": {
+                    "Interval": 0,
+                    "Retries": 0,
+                    "StartPeriod": 0,
+                    "Test": [
+                        ""
+                    ],
+                    "Timeout": 0
+                },
+                "Image": "fileserver:latest",
+                "Volumes": {
+                    "additionalProperties": {}
+                },
+                "WorkingDir": "",
+                "Entrypoint": [
+                    ""
+                ],
+                "NetworkDisabled": null,
+                "MacAddress": null,
+                "OnBuild": null,
+                "Labels": {
+                    "service": "platea",
+                    "instance": "test_instance"
+                },
+                "StopSignal": "SIGTERM",
+                "Shell": null,
+                "HostConfig": {
+                    "Binds": [
+                        "/mnt/fileshare:/mnt/fileshare",
+                        "/var/log/lcarnevale:/opt/app/log"
+                    ],
+                    "PortBindings": {
+                        "8085/tcp": [
+                            {
+                                "HostPort": "8085"
+                            }
+                        ]
+                    },
+                    "RestartPolicy": {
+                        "Name": "unless-stopped"
+                    }
+                }
+            }
+        },
+        "smtpclient-microservice": {
+            "endpoint": "https://github.com/lcarnevale/smtpclient-microservice.git#main",
+            
+            "config": {
+                "Hostname": "",
+                "Domainname": "",
+                "User": "",
+                "ExposedPorts": "5000",
+                "Env": [],
+                "Cmd": ["python3", "app.py"],
+                "Healthcheck": {
+                    "Interval": 0,
+                    "Retries": 0,
+                    "StartPeriod": 0,
+                    "Test": [
+                        ""
+                    ],
+                    "Timeout": 0
+                },
+                "Image": "smtpclient-microservice:latest",
+                "Volumes": {
+                    "additionalProperties": {}
+                },
+                "WorkingDir": "",
+                "Entrypoint": [
+                    ""
+                ],
+                "NetworkDisabled": null,
+                "MacAddress": null,
+                "OnBuild": null,
+                "Labels": {
+                    "service": "platea",
+                    "instance": "test_instance"
+                },
+                "StopSignal": "SIGTERM",
+                "Shell": null,
+                "HostConfig": {
+                    "Binds": [
+                        "/mnt/fileshare:/mnt/fileshare",
+                        "/var/log/lcarnevale:/opt/app/log"
+                    ],
+                    "PortBindings": {
+                        "5000/tcp": [
+                            {
+                                "HostPort": "5000"
+                            }
+                        ]
+                    },
+                    "RestartPolicy": {
+                        "Name": "unless-stopped"
+                    }
+                }
+            }
+        }
     }
-]
+}
