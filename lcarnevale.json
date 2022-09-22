@@ -35,7 +35,7 @@
                 "OnBuild": null,
                 "Labels": {
                     "service": "platea",
-                    "instance": "test_instance"
+                    "instance": "lcarnevale"
                 },
                 "StopSignal": "SIGTERM",
                 "Shell": null,
@@ -58,13 +58,13 @@
             }
         },
         "smtpclient-microservice": {
-            "endpoint": "https://github.com/lcarnevale/smtpclient-microservice.git#main",
+            "endpoint": "https://github.com/lcarnevale/smtpclient-microservice.git",
             
             "config": {
                 "Hostname": "",
                 "Domainname": "",
                 "User": "",
-                "ExposedPorts": "5000",
+                "ExposedPorts": {"5005/tcp": {}},
                 "Env": [],
                 "Cmd": ["python3", "app.py"],
                 "Healthcheck": {
@@ -89,7 +89,7 @@
                 "OnBuild": null,
                 "Labels": {
                     "service": "platea",
-                    "instance": "test_instance"
+                    "instance": "lcarnevale"
                 },
                 "StopSignal": "SIGTERM",
                 "Shell": null,
@@ -101,7 +101,7 @@
                     "PortBindings": {
                         "5000/tcp": [
                             {
-                                "HostPort": "5000"
+                                "HostPort": "5005"
                             }
                         ]
                     },
