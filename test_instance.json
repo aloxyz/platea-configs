@@ -1,0 +1,112 @@
+{
+    "instanceName": "test_instance",
+    "containers": {
+        "docker-mysql": {
+            "endpoint": "https://github.com/sameersbn/docker-mysql.git",
+
+            "config": {
+                "Hostname": "",
+                "Domainname": "",
+                "User": "",
+                "ExposedPorts": {"3306/tcp": {}},
+                "Env": [
+                    "DB_NAME=dbname"
+                ],
+                "Cmd": ["/usr/bin/mysqld_safe"],
+                "Healthcheck": {
+                    "Interval": 0,
+                    "Retries": 0,
+                    "StartPeriod": 0,
+                    "Test": [
+                        ""
+                    ],
+                    "Timeout": 0
+                },
+                "Image": "docker-mysql:latest",
+                "Volumes": {
+                    "additionalProperties": {}
+                },
+                "WorkingDir": "",
+                "Entrypoint": [
+                    ""
+                ],
+                "NetworkDisabled": null,
+                "MacAddress": null,
+                "OnBuild": null,
+                "Labels": {
+                    "service": "platea",
+                    "instance": "test_instance"
+                },
+                "StopSignal": "SIGTERM",
+                "Shell": null,
+                "HostConfig": {
+                    "Binds": [],
+                    "PortBindings": {
+                        "3306/tcp": [
+                            {
+                                "HostPort": "3306"
+                            }
+                        ]
+                    },
+                    "RestartPolicy": {
+                        "Name": "unless-stopped"
+                    }
+                }
+            }
+        },
+
+        "phpmyadmin": {
+            "endpoint": "https://github.com/phpmyadmin/docker.git#main",
+
+            "config": {
+                "Hostname": "",
+                "Domainname": "",
+                "User": "",
+                "ExposedPorts": {"8080/tcp": {}},
+                "Env": [
+                    "PMA_HOST=dbhost"
+                ],
+                "Cmd": [],
+                "Healthcheck": {
+                    "Interval": 0,
+                    "Retries": 0,
+                    "StartPeriod": 0,
+                    "Test": [
+                        ""
+                    ],
+                    "Timeout": 0
+                },
+                "Image": "phpmyadmin:latest",
+                "Volumes": {
+                    "additionalProperties": {}
+                },
+                "WorkingDir": "",
+                "Entrypoint": [
+                    ""
+                ],
+                "NetworkDisabled": null,
+                "MacAddress": null,
+                "OnBuild": null,
+                "Labels": {
+                    "service": "platea",
+                    "instance": "test_instance"
+                },
+                "StopSignal": "SIGTERM",
+                "Shell": null,
+                "HostConfig": {
+                    "Binds": [],
+                    "PortBindings": {
+                        "8080/tcp": [
+                            {
+                                "HostPort": "80"
+                            }
+                        ]
+                    },
+                    "RestartPolicy": {
+                        "Name": "unless-stopped"
+                    }
+                }
+            }
+        },
+    }
+}
