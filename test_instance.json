@@ -56,7 +56,7 @@
         },
 
         "phpmyadmin": {
-            "endpoint": "https://github.com/phpmyadmin/docker.git#main",
+            "endpoint": "https://github.com/phpmyadmin/docker.git",
 
             "config": {
                 "Hostname": "",
