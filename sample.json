@@ -2,24 +2,25 @@
   "name": "lcarnevale",
   "images": [
     {
+      "name": "lcarnevale/smtpclient-microservice",
       "source": true,
       "script": true,
-      "endpoint": "https://github.com/lcarnevale/smtpclient-microservice/archive/refs/heads/master.zip",
-      "name": "lcarnevale/smtpclient-microservice"
+      "endpoint": "https://github.com/lcarnevale/smtpclient-microservice.git"
+
     },
 
     {
+      "name": "lcarnevale/fileserver",
       "source": true,
       "script": false,
-      "endpoint": "https://github.com/lcarnevale/docker-file-server/archive/refs/heads/main.zip",
-      "name": "lcarnevale/fileserver"
+      "endpoint": "https://github.com/lcarnevale/docker-file-server.git"
     },
 
     {
+      "name": "alpine",
       "source": false,
       "script": false,
-      "endpoint": null,
-      "name": "alpine"
+      "endpoint": ""
     }
   ],
 
