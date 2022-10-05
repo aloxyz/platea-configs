@@ -1,0 +1,53 @@
+{
+  "name": "lcarnevale",
+  "images": [
+    {
+      "source": true,
+      "script": true,
+      "endpoint": "https://github.com/lcarnevale/smtpclient-microservice/archive/refs/heads/master.zip",
+      "name": "lcarnevale/smtpclient-microservice"
+    },
+
+    {
+      "source": true,
+      "script": false,
+      "endpoint": "https://github.com/lcarnevale/docker-file-server/archive/refs/heads/main.zip",
+      "name": "lcarnevale/fileserver"
+    },
+
+    {
+      "source": false,
+      "script": false,
+      "endpoint": null,
+      "name": "alpine"
+    }
+  ],
+
+  "containers": [
+    {
+      "Image": "lcarnevale/smtpclient-microservice",
+      "ExposedPorts": {"5000/tcp": {}},
+      "HostConfig": {
+        "PortBindings": {"5000/tcp": [{"HostPort": "5000"}]},
+        "RestartPolicy": {"Name": "unless-stopped"},
+        "AutoRemove": true
+      }
+    },
+
+    {
+      "Image": "lcarnevale/fileserver",
+      "ExposedPorts": {"8085/tcp": {}},
+      "HostConfig": {
+        "PortBindings": {"8085/tcp": [{"HostPort": "8085"}]},
+        "RestartPolicy": {"Name": "unless-stopped"},
+        "AutoRemove": true,
+        "Binds": [
+          "/mnt/fileshare:/mnt/fileshare",
+          "/var/log/lcarnevale:/opt/app/log"
+        ]
+      }
+    },
+
+    {"Image": "alpine"}
+  ]
+}
