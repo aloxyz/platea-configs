@@ -26,21 +26,19 @@
 
   "containers": [
     {
-      "Image": "lcarnevale/smtpclient-microservice",
+      "Image": "smtpclient-microservice",
       "ExposedPorts": {"5000/tcp": {}},
       "HostConfig": {
         "PortBindings": {"5000/tcp": [{"HostPort": "5000"}]},
-        "RestartPolicy": {"Name": "unless-stopped"},
         "AutoRemove": true
       }
     },
 
     {
-      "Image": "lcarnevale/fileserver",
+      "Image": "fileserver",
       "ExposedPorts": {"8085/tcp": {}},
       "HostConfig": {
         "PortBindings": {"8085/tcp": [{"HostPort": "8085"}]},
-        "RestartPolicy": {"Name": "unless-stopped"},
         "AutoRemove": true,
         "Binds": [
           "/mnt/fileshare:/mnt/fileshare",
