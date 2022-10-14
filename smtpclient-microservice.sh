@@ -1,6 +1,7 @@
 #!/bin/sh
+cd $HOME/.config/platea/tmp/smtpclient-microservice
 
-cat << EOF > $PLATEA_BASE_PATH/containers/smtpclient-microservice/$(ls -d */|head -n 1)/app/conf.yaml
+cat > app/conf.yaml <<EOF
 username: YOUR_GMAIL_ACCOUNT
 password: YOUR_APPLICATION_PASSWORD
 

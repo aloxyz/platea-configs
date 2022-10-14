@@ -2,24 +2,24 @@
   "name": "lcarnevale",
   "images": [
     {
-      "name": "lcarnevale/smtpclient-microservice",
+      "name": "smtpclient-microservice",
       "source": true,
-      "script": true,
+      "script": "smtpclient-microservice.sh",
       "endpoint": "https://github.com/lcarnevale/smtpclient-microservice.git"
 
     },
 
     {
-      "name": "lcarnevale/fileserver",
+      "name": "fileserver",
       "source": true,
-      "script": false,
+      "script": null,
       "endpoint": "https://github.com/lcarnevale/docker-file-server.git"
     },
 
     {
-      "name": "alpine",
+      "name": "alpine:latest",
       "source": false,
-      "script": false,
+      "script": null,
       "endpoint": ""
     }
   ],
@@ -30,7 +30,7 @@
       "ExposedPorts": {"5000/tcp": {}},
       "HostConfig": {
         "PortBindings": {"5000/tcp": [{"HostPort": "5000"}]},
-        "AutoRemove": true
+        "AutoRemove": false
       }
     },
 
@@ -39,7 +39,8 @@
       "ExposedPorts": {"8085/tcp": {}},
       "HostConfig": {
         "PortBindings": {"8085/tcp": [{"HostPort": "8085"}]},
-        "AutoRemove": true,
+        "AutoRemove": false,
+        "Env": ["PORT=8085"],
         "Binds": [
           "/mnt/fileshare:/mnt/fileshare",
           "/var/log/lcarnevale:/opt/app/log"
@@ -47,6 +48,13 @@
       }
     },
 
-    {"Image": "alpine"}
+    {
+        "Image": "alpine",
+        "HostConfig": {
+            "Cmd": ["tail -f /dev/null"],
+            "AttachStout": false,
+            "AttachStderr": false
+        }
+    }
   ]
 }
