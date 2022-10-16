@@ -10,7 +10,7 @@
       },
 
       {
-        "name": "nodered/node-red:latest",
+        "name": "mysql",
         "source": false,
         "script": null,
         "endpoint": ""
@@ -30,11 +30,11 @@
       },
 
       {
-        "Image": "node-red",
+        "Image": "mysql",
         "ExposedPorts": {"1880/tcp": {}},
         "HostConfig": {
           "PortBindings": {"1880/tcp": [{"HostPort": "1880"}]},
-          "Binds": ["/node_red_data:/data"],
+          "Env": ["MYSQL_ROOT_PASSWORD=my-secret-pw"],
           "AutoRemove": false
         }
       }
