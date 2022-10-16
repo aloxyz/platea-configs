@@ -2,7 +2,7 @@
     "name": "sample",
     "images": [
       {
-        "name": "grafana/grafana:latest",
+        "name": "grafana/grafana-oss:latest",
         "source": false,
         "script": null,
         "endpoint": ""
@@ -20,7 +20,7 @@
   
     "containers": [
       {
-        "Image": "grafana",
+        "Image": "grafana-oss",
         "ExposedPorts": {"3000/tcp": {}},
         "HostConfig": {
           "PortBindings": {"3000/tcp": [{"HostPort": "3000"}]},
