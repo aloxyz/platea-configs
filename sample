@@ -1,0 +1,42 @@
+{
+    "name": "sample",
+    "images": [
+      {
+        "name": "grafana:latest",
+        "source": false,
+        "script": null,
+        "endpoint": ""
+  
+      },
+
+      {
+        "name": "node-red:latest",
+        "source": false,
+        "script": null,
+        "endpoint": ""
+  
+      }
+    ],
+  
+    "containers": [
+      {
+        "Image": "grafana:latest",
+        "ExposedPorts": {"3000/tcp": {}},
+        "HostConfig": {
+          "PortBindings": {"3000/tcp": [{"HostPort": "3000"}]},
+          "AutoRemove": false
+        }
+      },
+
+      {
+        "Image": "node-red:latest",
+        "ExposedPorts": {"1880/tcp": {}},
+        "HostConfig": {
+          "PortBindings": {"1880/tcp": [{"HostPort": "1880"}]},
+          "Binds": ["/node_red_data:/data"],
+          "AutoRemove": false
+        }
+      }
+    ]
+  }
+  
