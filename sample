@@ -20,7 +20,7 @@
   
     "containers": [
       {
-        "Image": "grafana:latest",
+        "Image": "grafana",
         "ExposedPorts": {"3000/tcp": {}},
         "HostConfig": {
           "PortBindings": {"3000/tcp": [{"HostPort": "3000"}]},
@@ -29,7 +29,7 @@
       },
 
       {
-        "Image": "node-red:latest",
+        "Image": "node-red",
         "ExposedPorts": {"1880/tcp": {}},
         "HostConfig": {
           "PortBindings": {"1880/tcp": [{"HostPort": "1880"}]},
