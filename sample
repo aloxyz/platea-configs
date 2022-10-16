@@ -2,7 +2,7 @@
     "name": "sample",
     "images": [
       {
-        "name": "grafana:latest",
+        "name": "grafana/grafana:latest",
         "source": false,
         "script": null,
         "endpoint": ""
@@ -10,7 +10,7 @@
       },
 
       {
-        "name": "node-red:latest",
+        "name": "nodered/node-red:latest",
         "source": false,
         "script": null,
         "endpoint": ""
