@@ -2,7 +2,7 @@
     "name": "sample",
     "images": [
       {
-        "name": "grafana/grafana-oss:latest",
+        "name": "nginx",
         "source": false,
         "script": null,
         "endpoint": ""
@@ -20,10 +20,11 @@
   
     "containers": [
       {
-        "Image": "grafana/grafana-oss",
-        "ExposedPorts": {"3000/tcp": {}},
+        "Image": "nginx",
+        "ExposedPorts": {"8080/tcp": {}},
         "HostConfig": {
-          "PortBindings": {"3000/tcp": [{"HostPort": "3000"}]},
+          "PortBindings": {"8080/tcp": [{"HostPort": "80"}]},
+          "Binds": ["/some/content:/usr/share/nginx/html:ro"],
           "AutoRemove": false
         }
       },
